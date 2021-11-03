@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Fruktur&display=swap');
+
+*,::after,::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/* body{
+    
+
+} */
+main{
+    margin:0 auto;
+    width:90vw;
+    max-width: 1040px;
+    /* text-align: center; */
+}
+
+.title{
+    letter-spacing:2px;
+    font-family: 'Fruktur', cursive;
+    border:3px solid black;
+    text-align: center;
+}
+
+.content{
+    /* background: url("./background.jpg");
+    
+    background-repeat: inherit; */
+    
+    height:80vh;
+    width:100%;
+
+    
+}
+.background-img{
+    object-fit: cover;
+    object-position: center ;
+    width:90vw;
+    max-width: 1040px;
+    height:70vh;
+    z-index: -1;
+    position:absolute;
+}
+.buttons{
+    position:absolute;
+    width:90vw;
+    max-width: 1040px;
+}
+.playground{
+    width:100%;
+    color:white;
+    /* position:absolute; */
+    /* border:1px solid red; */
+   display:flex;
+   
+   height:60vh;
+ 
+    justify-content: space-around;
+
+}
+.me,.dealer{
+    font-size: 14px;
+    border:3px solid rgb(0, 0, 0);
+    flex-grow: 1;
+    text-align: center;
+}
+.me span,.dealer span{
+    border : 1px dotted white;
+  font-size:2rem;
+}
+
+.actions{
+    /* border: 1px solid red; */
+    display:flex;
+    justify-content:center;
+    color:rgb(0, 0, 0);
+    
+
+}
+.hit,.stand,.deal{
+    border:3px solid black;
+    margin: 5px 5px;
+    padding: 5px;
+    font-size: 25px;
+    cursor:pointer;
+
+
+}
+.hit{
+    background-color:rgb(255, 255, 80);
+}
+.hit:hover{
+    background-color:rgb(223, 223, 93);
+}
+.stand{
+    background-color:rgb(80, 208, 255);
+}
+.stand:hover{
+    background-color:rgb(64, 148, 179);
+}
+.deal{
+    background-color: red;
+}
+.deal:hover{
+    background-color: rgb(194, 34, 34);
+}
