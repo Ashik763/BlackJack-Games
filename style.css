@@ -105,3 +105,15 @@ main{
 .deal:hover{
     background-color: rgb(194, 34, 34);
 }
+
+table, th, td {
+    border:1px solid black;
+    text-align: center;
+    padding:5px;
+  }
+
+  .table{
+      /* width:100vw; */
+      display:flex;
+      justify-content: center;
+  }
