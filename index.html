@@ -19,12 +19,15 @@
             <img class="background-img" src="./background.jpg" alt="background">
             <div class="buttons">  
                 <div class="playground"> 
-                    <div class="me"> 
-                        <span class="">You:0 </span>
+                    <div id="me" class="me"> 
+                        You:<span id="yourScore"> 0 </span>
+                        <div id="my-cards"> 
+                            
+                        </div>
                         
                     </div>
-                    <div class="dealer">
-                        <span class=""> Dealer:0 </span>
+                    <div id="dealer" class="dealer">
+                         Dealer:<span id="dealerScore"> 0 </span>
 
                     </div>
 
@@ -49,31 +52,29 @@
 
         </section>
 
-        <div class="table"> 
-            <table>
-            <tr>
-                <th> Win </th>
-                 <th>Losses </th>
-                  <th> Draws </th>
-            </tr>    
-            <tr>
-                <td> 0 </td>
-                 <td>0 </td> 
-                 <td> 0 </td>
-            </tr>    
-            
-            </table>
-            
-        
-        </div>
-
     
     
     
     
     </main>
-
-
+    
+    <div class="table"> 
+        <table>
+        <tr>
+            <th> Win </th>
+             <th>Losses </th>
+              <th> Draws </th>
+        </tr>    
+        <tr>
+            <td> 0 </td>
+             <td>0 </td> 
+             <td> 0 </td>
+        </tr>    
+        
+        </table>
+        
+    
+    </div>
 
     <script src="./index.js"></script>
 </body>

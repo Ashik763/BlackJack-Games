@@ -28,7 +28,8 @@ main{
     
     background-repeat: inherit; */
     
-    height:80vh;
+    min-height:75vh;
+    /* max-height:auto; */
     width:100%;
 
     
@@ -43,9 +44,11 @@ main{
     position:absolute;
 }
 .buttons{
-    position:absolute;
+    /* position:absolute; */
     width:90vw;
     max-width: 1040px;
+    /* min-height: 80vh; */
+    max-height:auto;
 }
 .playground{
     width:100%;
@@ -54,7 +57,8 @@ main{
     /* border:1px solid red; */
    display:flex;
    
-   height:60vh;
+   min-height:60vh;
+   max-height:auto;
  
     justify-content: space-around;
 
@@ -62,16 +66,22 @@ main{
 .me,.dealer{
     font-size: 14px;
     border:3px solid rgb(0, 0, 0);
-    flex-grow: 1;
+    width:50%;
     text-align: center;
 }
 .me span,.dealer span{
     border : 1px dotted white;
   font-size:2rem;
 }
+#my-cards img{
+    margin: 5px 4px;
+    width:20%;
+    height:40%;
+}
 
 .actions{
     /* border: 1px solid red; */
+    position: relative;
     display:flex;
     justify-content:center;
     color:rgb(0, 0, 0);
@@ -113,7 +123,9 @@ table, th, td {
   }
 
   .table{
+      position: relative;
       /* width:100vw; */
       display:flex;
       justify-content: center;
+      margin-bottom: 20px;
   }
