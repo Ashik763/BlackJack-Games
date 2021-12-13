@@ -1,7 +1,7 @@
-var req = new XMLHttpRequest();
-req.open('GET', 'https://jsonplaceholder.typicode.com/posts',true);
-req.send();
-req.on
+// var req = new XMLHttpRequest();
+// req.open('GET', 'https://jsonplaceholder.typicode.com/posts',true);
+// req.send();
+// req.on
 
 
 
@@ -17,15 +17,22 @@ const YOU = blackjackGame['you'];
 const DEALER = blackjackGame['dealer'];
 const hitSound = new Audio('./sounds/swish.m4a');
 const awwSound = new Audio('./sounds/aww.mp3');
+const cashSound = new Audio('./sounds/cash.mp3');
+let numberOfWin = 0;
+let numberOfLoss = 0;
 
 document.querySelector(".hit").addEventListener("click", blackjackHit);
-document.querySelector(".deal").addEventListener("click",blackjackDeal);
 document.querySelector(".stand").addEventListener("click",blackjackStand);
+document.querySelector(".deal").addEventListener("click",blackjackDeal);
+
 
 function blackjackStand() {
-    document.querySelector("#hit").disabled = true;
-    for(let i = 0;  DEALER['score'] < YOU["score"] &&  DEALER['score'] < 21   ; i++) {
-        showCard(DEALER);
+    //document.querySelector("#hit").disabled = true;
+    for(let i = 0;  DEALER['score'] <= YOU["score"] &&  DEALER['score'] < 21   ; i++) {
+      
+            showCard(DEALER);
+       
+ 
 
     }
     // showCard(DEALER);
@@ -58,16 +65,53 @@ function blackjackHit() {
     console.log(num);
     
     activePlayer["score"] = activePlayer["score"]+ blackjackGame["cardMap"][cards[num]] ;
-    // num=num+num;
-    // console.log(totalNum);
+  
+    let subTitle = document.querySelector(".sub-title");
+
     document.querySelector(activePlayer['scoreSpan']).innerHTML =  activePlayer["score"];
+    if(YOU['score'] < DEALER['score'] && DEALER['score'] <= 21) {
+        subTitle.innerHTML = " You lost";
+        subTitle.style.color = "red";
+        console.log("11111111");
+        numberOfLoss = numberOfLoss + 1;
+        let lossDiv = document.querySelector("#loss");
+        lossDiv.innerHTML = " ";
+        lossDiv.innerHTML = numberOfLoss;
+        console.log("4444444444444");
+
+    }
     if(activePlayer["score"] > 21 ){
       document.querySelector(activePlayer["scoreSpan"]).innerHTML = "Bust!";
       document.querySelector("#hit").disabled = true;
       document.querySelector("#stand").disabled = true;
       if(document.querySelector(activePlayer["scoreSpan"]).innerHTML === "Bust!"){
         document.querySelector(activePlayer["scoreSpan"]).style.color = "red";
+        console.log("222222222222222222");
       }
+      if(activePlayer == DEALER){
+        subTitle.innerHTML = " You won";
+        subTitle.style.color = "green";
+       // let numberOfWin = 0;
+        numberOfWin = numberOfWin + 1;
+        let winDiv = document.querySelector("#win");
+        winDiv.innerHTML =" ";
+        winDiv.innerHTML = numberOfWin;
+        console.log("3333333333");
+      
+
+      }
+      else if(activePlayer == YOU){
+        subTitle.innerHTML = " You lost";
+        subTitle.style.color = "red";
+       // let numberOfLoss = 0;
+        numberOfLoss = numberOfLoss + 1;
+        let lossDiv = document.querySelector("#loss");
+        lossDiv.innerHTML = " ";
+        lossDiv.innerHTML = numberOfLoss;
+        console.log("4444444444444");
+
+      }
+    
 
     }
     // document.querySelector("#yourScore").innerHTML = ;
@@ -75,6 +119,11 @@ function blackjackHit() {
  }
 
  function blackjackDeal(){
+    document.querySelector(YOU["scoreSpan"]).style.color = "white";
+    document.querySelector(DEALER["scoreSpan"]).style.color = "white";
+    let subTitle = document.querySelector(".sub-title");
+    subTitle.innerHTML = "Let's play again";
+    subTitle.style.color = "black";
      let yourImages = document.querySelector("#my-cards").querySelectorAll('img');
      let myImgBox = document.querySelector("#my-cards");
      console.log(yourImages);
@@ -85,13 +134,16 @@ function blackjackHit() {
          })
 
          YOU['score'] = 0;
+         DEALER['score'] = 0;
          document.querySelector(YOU['scoreSpan']).innerHTML = YOU['score'] ;
          document.querySelector(DEALER['scoreSpan']).innerHTML = YOU['score'] ;
          document.querySelector("#hit").disabled = false;
+         document.querySelector("#stand").disabled = false;
 
     
      console.log(yourImages.length);
     // myImgBox.innerHTML = "";
     dealerImgBox.innerHTML = "";
-    awwSound.play();
+    //awwSound.play();
+    cashSound.play();
  }
