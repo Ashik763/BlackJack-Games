@@ -1,7 +1,7 @@
 # BlackJack-Games
 
 Rules: 
-1.Your target is to get a number(should be less than 21 or equal to 21) as close of 21 as you can!!But if your total card's value becomes more than 21 then you will lose.
+1.Your target is to get a number(should be less than 21 or equal to 21) as close of 21 as you can!!But if your total cards' value becomes more than 21 then you will lose.
 
 The value of the cards are given below:
 "2":2
